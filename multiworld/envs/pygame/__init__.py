@@ -35,6 +35,22 @@ def register_reaching_envs():
             'show_goal': False,
             'get_image_base_render_size': (48, 48),
         },
+    )register(
+        id='Point2DLargeGoalEnv-v0',
+        entry_point='multiworld.envs.pygame.point2d:Point2DEnv',
+        tags={
+            'git-commit-hash': '4efe2be',
+            'author': 'Vitchyr'
+        },
+        kwargs={
+            'images_are_rgb': True,
+            'target_radius': 1,
+            'ball_radius': 1,
+            'render_onscreen': False,
+            'show_goal': False,
+            'get_image_base_render_size': (48, 48),
+            'reward_type': 'sparse'
+        },
     )
     register(
         id='Point2DEasyEnv-v1',

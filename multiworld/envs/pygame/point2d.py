@@ -193,7 +193,8 @@ class Point2DEnv(MultitaskEnv, Serializable):
         desired_goals = obs['state_desired_goal']
         d = np.linalg.norm(achieved_goals - desired_goals, axis=-1)
         if self.reward_type == "sparse":
-            return -(d > self.target_radius).astype(np.float32)
+            #return -(d > self.target_radius).astype(np.float32)
+            return (d < self.target_radius).astype(np.float32)
         elif self.reward_type == "dense":
             return -d
         elif self.reward_type == 'vectorized_dense':
